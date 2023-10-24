@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Удалить задачу</title>
+</head>
+<body>
+<h1>Удалить задачу</h1>
+<form action="/tasks/delete/${task.id}" method="post" th:object="${task}">
+    <input type="hidden" name="id" th:value="${task.id}">
+    <button type="submit">Удалить</button>
+</form>
+
+<a href="/tasks">Отмена</a>
+</body>
+</html>

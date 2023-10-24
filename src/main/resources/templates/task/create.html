@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Создать задачу</title>
+</head>
+<body>
+<h1>Создать новую задачу</h1>
+<form action="/tasks/create" method="post" th:object="${task}">
+    <label for="description">Описание:</label>
+    <input type="text" id="description" name="description" th:field="*{description}" required>
+    <label for="completed">Завершено:</label>
+    <input type="checkbox" id="completed" name="completed" th:field="*{completed}">
+
+    <button type="submit">Создать</button>
+</form>
+
+<a href="/tasks">Вернуться к списку задач</a>
+</body>
+</html>

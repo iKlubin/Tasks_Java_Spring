@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Список задач</title>
+  <style>
+    *{
+      transition: all ease 0.2s;
+    }
+    h1{
+      color: #65FD0D;
+      text-shadow: 0 20px 50px #65FD0D;
+      font-size: 64px;
+      font-family: "Space Grotesk", serif;
+    }
+    h2{
+      color: #F2DCFF;
+      margin-bottom: 40px;
+    }
+    a{
+      text-decoration: none;
+      font-size: 30px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    p{
+      color: #F8FAFC;
+    }
+    .emoji{
+      text-shadow: 0 0 20px rgba(248, 250, 252, 0.7);
+    }
+    .emoji:hover{
+      text-shadow: 0 0 40px seashell;
+      font-size: 34px;
+    }
+    body {
+      width: 80%;
+      margin: 0 auto;
+      text-align: center;
+      font-family: "", serif;
+      background-color: #030005;
+      display: flex;
+      flex-direction: column;
+      min-height: 200vw;
+    }
+    .card {
+      padding: 20px;
+      width: 800px;
+      margin: 20px auto; /* Отступ между карточками */
+      background-color: #27013D; /* Фон карточки */
+      border-radius: 10px; /* Скругление углов карточки */
+    }
+    .card:hover{
+      scale: 1.1;
+    }
+    .button {
+      margin: 50px auto; /* Отступ между карточками */
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #65FD0D;
+      color: #030005; /* Цвет текста */
+      text-decoration: none; /* Убирает подчеркивание ссылки */
+      border-radius: 10px; /* Скругление углов карточки */
+      cursor: pointer; /* Заменяет курсор при наведении на кнопку */
+      font-weight: bold;
+      transition: all ease 0.2s;
+    }
+    .button:hover{
+      margin-top: 30px;
+      color: #F8FAFC;
+      box-shadow: 0 0 50px #65FD0D;
+      text-shadow: 0 0 50px #65FD0D;
+    }
+
+  </style>
+</head>
+<body>
+<h1>Список задач</h1>
+<div th:each="task : ${tasks}" class="card">
+  <h2 th:text="${task.description}"></h2>
+  <p th:text="${task.completed ? '✅ Завершено' : '❌ Не завершено'}"></p>
+  <a class="emoji" th:href="@{'/tasks/edit/' + ${task.id}}">✏️</a>
+  <a style="color: #F8FAFC">|</a>
+  <a class="emoji" th:href="@{'/tasks/delete/' + ${task.id}}">🗑️</a>
+</div>
+  <a href="/tasks/create" class="button">Создать новую задачу</a>
+</body>
+</html>

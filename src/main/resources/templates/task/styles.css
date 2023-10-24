@@ -1,0 +1,15 @@
+body {
+    justify-content: space-evenly;
+    font-family: "Anonymous Pro", serif;
+    background-color: #F8FAFC;
+    display: flex;
+}
+
+.card {
+    margin: 10px; /* Отступ между карточками */
+    padding: 10px; /* Внутренний отступ карточки */
+    background-color: #fff; /* Фон карточки */
+    border: 1px solid #ddd; /* Граница карточки */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень карточки */
+    border-radius: 5px; /* Скругление углов карточки */
+}
